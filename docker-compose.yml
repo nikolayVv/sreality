@@ -1,0 +1,44 @@
+version: "3.5"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    container_name: sreality-postgresql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    ports:
+      - "5432:5432"
+    networks:
+      - local-network
+    volumes:
+    - ./docker/postgres-init:/docker-entrypoint-initdb.d
+  node-api:
+    container_name: sreality
+    restart: always
+    ports:
+      - "8080:8080"
+    image: sreality-node-ts
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - PORT=8080
+      - DB_USER=postgres
+      - DB_PASSWORD=12345
+      - DB_HOST=db
+      - DB_NAME=sreality
+      - DB_PORT=5432
+    command: "npm start"
+    networks:
+      - local-network
+    depends_on:
+      - db
+networks:
+  local-network:
+    name: local-network
+    driver: bridge

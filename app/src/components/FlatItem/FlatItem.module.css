@@ -1,0 +1,94 @@
+.FlatItem {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 16px;
+    border: 1px solid #ccc;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.ImageCarousel {
+    position: relative;
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.FlatImage {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.PrevButton,
+.NextButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 75, 0.5);
+    color: #fff;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.PrevButton:hover,
+.NextButton:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(0, 0, 75);
+    border: black;
+}
+
+.PrevButton {
+    left: 0;
+}
+
+.NextButton {
+    right: 0;
+}
+
+.FlatDetails {
+    margin-top: 16px;
+}
+
+.FlatTitle {
+    font-size: 1.2rem;
+    margin: 8px 0;
+    color: darkred;
+}
+
+.FlatTitle:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.FlatLocation {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.FlatPrice {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.FlatTags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Tag {
+    background-color: rgba(0,123,255, 0.8);
+    color: #fff;
+    padding: 4px 8px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.Tag:hover {
+    background-color: #007bff;
+}
